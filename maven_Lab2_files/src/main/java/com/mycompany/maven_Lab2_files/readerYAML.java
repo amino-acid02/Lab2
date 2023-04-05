@@ -13,12 +13,13 @@ import org.yaml.snakeyaml.Yaml;
 
 public class readerYAML implements Reader {
 
-    public String path = "";
-    public ArrayList<Reactor> reactorList = new ArrayList<>();
+    protected String path = "";
+    protected ArrayList<Reactor> reactorList = new ArrayList<>();
+    
     public  readerYAML(String path){
-        this.path = path;
-        
+        this.path = path;    
     }
+    
     Reactor currentReactor;
     
     @Override

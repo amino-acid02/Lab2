@@ -5,15 +5,15 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 
 public  class Reactor {
-    String name;
-    Float burnup;
-    Float kpd;
-    Float enrichment;
-    Float electrical_capacity;
-    Float termal_capacity;
-    Float life_time;
-    Float first_load;
-    String source;
+    private String name;
+    private Float burnup;
+    private Float kpd;
+    private Float enrichment;
+    private Float electrical_capacity;
+    private Float termal_capacity;
+    private Float life_time;
+    private Float first_load;
+    private String source;
     
     public void setName(String name) {
         this.name = name;

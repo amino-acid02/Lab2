@@ -13,15 +13,15 @@ import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
 public class readerXML implements Reader {
-    public String path = "";
-    public ArrayList<Reactor> reactorList = new ArrayList();
+    
+    protected String path = "";
+    protected ArrayList<Reactor> reactorList = new ArrayList();
 
     public  readerXML(String path) {
         this.path = path;
     }
 
-
-    Reactor currentReactor = null;
+    Reactor currentReactor;
 
     @Override
     public void readFile() 
