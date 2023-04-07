@@ -35,7 +35,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ChooseFile.setCurrentDirectory(new java.io.File("C:\\amina\\uni\\3year\\прога\\Lab2\\maven_Lab2_files"));
+        ChooseFile.setCurrentDirectory(new java.io.File("C:\\Users\\Амина\\Documents\\GitHub\\Lab2\\maven_Lab2_files"));
         ChooseFile.setToolTipText("");
         ChooseFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
