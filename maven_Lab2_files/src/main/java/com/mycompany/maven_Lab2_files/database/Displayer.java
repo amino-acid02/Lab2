@@ -15,7 +15,7 @@ public class Displayer extends ConnectionRunners{
     
     public Displayer(String query) throws SQLException
     {
-        Vector columnNames = new Vector();
+        Vector colNames = new Vector();
         Vector data = new Vector();
 
         Connection engine = DriverManager.getConnection(this.url, this.user, this.password);
@@ -26,14 +26,14 @@ public class Displayer extends ConnectionRunners{
         
         for(int i = 1; i <= columns; i++)
         {
-            columnNames.addElement(md.getColumnName(i));
+            colNames.addElement(md.getColumnName(i));
         }
         while(resultTable.next())
         {
             Vector row = new Vector(columns);
             for(int i = 1; i<= columns; i++)
             {
-                    row.addElement(resultTable.getObject(i));
+                row.addElement(resultTable.getObject(i));
             }
             data.addElement(row);         
         }
@@ -41,7 +41,7 @@ public class Displayer extends ConnectionRunners{
         stmt.close();
         engine.close();
 
-        this.colNames =  columnNames;
+        this.colNames =  colNames;
         this.data =  data;
     }
     
@@ -50,6 +50,9 @@ public class Displayer extends ConnectionRunners{
         return this.colNames;
     }
     
-    public Vector getData(){return this.data;}
+    public Vector getData()
+    {
+        return this.data;
+    }
     
 }

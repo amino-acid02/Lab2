@@ -235,27 +235,27 @@ public class NewJFrame extends javax.swing.JFrame {
 
     //далее три кнопки агрегаций
     private void AgregCountryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregCountryButtonActionPerformed
-         try {
-             Creator creator = new Creator();
-             creator.agreg(1);
-             String query = "select * from public.aggregation_countries;";
-             Displayer displayer0  = new Displayer(query);
-             DefaultTableModel dt = new DefaultTableModel(displayer0.getData(), displayer0.getColNames());
-             this.jTable1.setModel(dt );
-             JTable g = new JTable(displayer0.getData(), displayer0.getColNames())
-             {
-                 public Class getColumnClass(int column)
-                 {
-                     for(int row = 0;row<getRowCount();row++){
-                         Object o = getValueAt(row, column);
-                         if(o!=null){
-                             return o.getClass();
-                         }
-                     }
-                     return Object.class;
-                 }
-             };
-             this.jTable1.setVisible(true);
+        try {
+            Creator creator = new Creator();
+            creator.agreg(1);
+            String query = "select * from public.aggregation_countries;";
+            Displayer displayer  = new Displayer(query);
+            DefaultTableModel dt = new DefaultTableModel(displayer.getData(), displayer.getColNames());
+            this.jTable1.setModel(dt );
+             //JTable g = new JTable(displayer.getData(), displayer.getColNames());
+//             {
+//                 public Class getColumnClass(int column)
+//                 {
+//                     for(int row = 0;row<getRowCount();row++){
+//                         Object o = getValueAt(row, column);
+//                         if(o!=null){
+//                             return o.getClass();
+//                         }
+//                     }
+//                     return Object.class;
+//                 }
+//             };
+            this.jTable1.setVisible(true);
          } catch (Exception e) {
             JOptionPane.showMessageDialog (null, "Проблемы с агрегацией", "Oшибка", JOptionPane.ERROR_MESSAGE);
          }
@@ -263,56 +263,30 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void AgregCompanyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregCompanyButtonActionPerformed
         try {
-             Creator creator = new Creator();
-             creator.agreg(2);
-             String query = "select * from public.aggregation_companies;";
-             Displayer displayer0  = new Displayer(query);
-             DefaultTableModel dt = new DefaultTableModel(displayer0.getData(), displayer0.getColNames());
-             this.jTable1.setModel(dt );
-             JTable g = new JTable(displayer0.getData(), displayer0.getColNames())
-             {
-                 public Class getColumnClass(int column)
-                 {
-                     for(int row = 0;row<getRowCount();row++){
-                         Object o = getValueAt(row, column);
-                         if(o!=null){
-                             return o.getClass();
-                         }
-                     }
-                     return Object.class;
-                 }
-             };
-             this.jTable1.setVisible(true);
-         } catch (Exception ex) {
+            Creator creator = new Creator();
+            creator.agreg(2);
+            String query = "select * from public.aggregation_companies;";
+            Displayer displayer0  = new Displayer(query);
+            DefaultTableModel dt = new DefaultTableModel(displayer0.getData(), displayer0.getColNames());
+            this.jTable1.setModel(dt );
+            this.jTable1.setVisible(true);
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog (null, "Проблемы с агрегацией", "Oшибка", JOptionPane.ERROR_MESSAGE);
-         }
+        }
     }//GEN-LAST:event_AgregCompanyButtonActionPerformed
 
     private void AgregRegionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregRegionButtonActionPerformed
         try {
-             Creator creator = new Creator();
-             creator.agreg(3);
-             String query = "select * from public.aggregation_regions;";
-             Displayer displayer0  = new Displayer(query);
-             DefaultTableModel dt = new DefaultTableModel(displayer0.getData(), displayer0.getColNames());
-             this.jTable1.setModel(dt );
-             JTable g = new JTable(displayer0.getData(), displayer0.getColNames())
-             {
-                 public Class getColumnClass(int column)
-                 {
-                     for(int row = 0;row<getRowCount();row++){
-                         Object o = getValueAt(row, column);
-                         if(o!=null){
-                             return o.getClass();
-                         }
-                     }
-                     return Object.class;
-                 }
-             };
-             this.jTable1.setVisible(true);
-         } catch (Exception ex) {
+            Creator creator = new Creator();
+            creator.agreg(3);
+            String query = "select * from public.aggregation_regions;";
+            Displayer displayer0  = new Displayer(query);
+            DefaultTableModel dt = new DefaultTableModel(displayer0.getData(), displayer0.getColNames());
+            this.jTable1.setModel(dt );
+            this.jTable1.setVisible(true);
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog (null, "Проблемы с агрегацией", "Oшибка", JOptionPane.ERROR_MESSAGE);
-         }
+        }
     }//GEN-LAST:event_AgregRegionButtonActionPerformed
     
     //кнопка вычислений

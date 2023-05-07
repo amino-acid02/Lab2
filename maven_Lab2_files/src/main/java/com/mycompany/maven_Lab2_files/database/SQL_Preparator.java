@@ -21,7 +21,7 @@ public class SQL_Preparator {
     private File f;
     private FileInputStream fis;
     private XSSFWorkbook wb;
-    private  String path;
+    private String path;
     public PreparedStatement query_prepared = null;
     private ArrayList<Reactor> sourseOther;
     
