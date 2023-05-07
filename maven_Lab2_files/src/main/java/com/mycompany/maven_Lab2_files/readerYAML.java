@@ -2,33 +2,24 @@ package com.mycompany.maven_Lab2_files;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.yaml.snakeyaml.Yaml;
 
 public class readerYAML implements Reader {
 
-    protected String path = "";
     protected ArrayList<Reactor> reactorList = new ArrayList<>();
-    
-    public  readerYAML(String path){
-        this.path = path;    
-    }
-    
     Reactor currentReactor;
     
     @Override
-    public void readFile() 
+    public ArrayList<Reactor> readFile(String path) 
     {
         try 
         {
             Yaml yaml = new Yaml();
-            File file = new File(this.path);
+            File file = new File(path);
             InputStream inputStream = new FileInputStream(file);
             Map<String, Map<String,?>> data = yaml.load(inputStream);
             Iterator iterator = data.keySet().iterator();
@@ -72,14 +63,9 @@ public class readerYAML implements Reader {
                 currentReactor.setSource("YAML");
                 reactorList.add( currentReactor);
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(readerYAML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-    }
-
-    @Override
-    public ArrayList<Reactor> getReactors() {
         return reactorList;
     }
     

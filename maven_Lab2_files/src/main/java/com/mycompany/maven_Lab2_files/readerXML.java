@@ -1,30 +1,20 @@
 package com.mycompany.maven_Lab2_files;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
 public class readerXML implements Reader {
     
-    protected String path = "";
     protected ArrayList<Reactor> reactorList = new ArrayList();
-
-    public  readerXML(String path) {
-        this.path = path;
-    }
-
     Reactor currentReactor;
 
     @Override
-    public void readFile() 
+    public ArrayList<Reactor> readFile(String path) 
     {
         try {
             XMLInputFactory factory = XMLInputFactory.newInstance();
@@ -91,16 +81,9 @@ public class readerXML implements Reader {
                     }
                 }
             }
-        } catch (XMLStreamException ex) {
-            Logger.getLogger(readerXML.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(readerXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-    }
-
-    @Override
-    public ArrayList<Reactor> getReactors(){
         return reactorList;
     }
 

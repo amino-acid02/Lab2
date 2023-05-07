@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public interface Reader {
     
-    public void readFile();
-    public ArrayList<Reactor> getReactors();
+    public ArrayList<Reactor> readFile(String path);
 
 }
 

@@ -5,27 +5,18 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class readerJSON implements Reader {
 
-    protected String path = "";
     protected ArrayList<Reactor> reactorList = new ArrayList();
-    
-    public  readerJSON(String path){
-        this.path = path;
-    }
-
     Reactor currentReactor;
 
     @Override
-    public void readFile()
+    public ArrayList<Reactor> readFile(String path)
     {
         try {
-            File file = new File(this.path);
+            File file = new File(path);
             JsonParser jsonParser = new JsonFactory().createParser(file);
             
             while(jsonParser.nextToken() != JsonToken.END_OBJECT) 
@@ -75,14 +66,10 @@ public class readerJSON implements Reader {
                     jsonParser.nextToken();
                 }
             }
-        } catch (IOException ex) {
-            Logger.getLogger(readerJSON.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-    }
-
-    @Override
-    public ArrayList<Reactor> getReactors() {
         return reactorList;
     }
+
 }
