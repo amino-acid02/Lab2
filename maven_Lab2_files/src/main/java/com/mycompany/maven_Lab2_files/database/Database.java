@@ -26,15 +26,15 @@ public class Database {
         this.creator.run();
     }
 
-    public void StartInsert(String sourse)
+    public void StartInsert(String source)
     {
-        Inserter excelInserter = new Inserter(this.mode, sourse);
+        Inserter excelInserter = new Inserter(this.mode, source);
         excelInserter.runExcel();
     }
     
-    public void StartInsert(ArrayList<Reactor> sourse)
+    public void StartInsert(ArrayList<Reactor> source)
     {
-        Inserter OtherInserter = new Inserter(this.mode, sourse);
+        Inserter OtherInserter = new Inserter(this.mode, source);
         OtherInserter.run();
     }
    

@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -40,7 +41,7 @@ public class SQL_Preparator {
     
     public void openFile() throws FileNotFoundException, IOException
     {
-        this.f = new File(this.path);
+        this.f = new File(path);
 	this.fis = new FileInputStream(this.f);
         this.wb= new XSSFWorkbook(this.fis);     
     }
@@ -72,7 +73,9 @@ public class SQL_Preparator {
         if(this.mode.equals("excel"))
         {
             FixerExcel F = new FixerExcel();
+            JOptionPane.showMessageDialog (null, "Сейчас открою файл "+path, "Oшибка", JOptionPane.ERROR_MESSAGE);
             openFile();
+            JOptionPane.showMessageDialog (null, "Файл открыт", "Oшибка", JOptionPane.ERROR_MESSAGE);
             PreparedStatement query_prepared = engine.prepareStatement(unprepared_SQL);
             int nRows = getNrows(table_name);
             int nCols = getNcols(table_name);
