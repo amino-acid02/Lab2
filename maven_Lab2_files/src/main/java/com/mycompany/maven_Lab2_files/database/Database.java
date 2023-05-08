@@ -12,7 +12,7 @@ public class Database {
 
     private Inserter inserter;
     private Creator creator;
-    private  String mode = "auto";
+    private String mode = "auto";
     
     
     public  Database(String mode) 
@@ -29,7 +29,7 @@ public class Database {
     public void StartInsert(String sourse)
     {
         Inserter excelInserter = new Inserter(this.mode, sourse);
-        excelInserter.run();
+        excelInserter.runExcel();
     }
     
     public void StartInsert(ArrayList<Reactor> sourse)

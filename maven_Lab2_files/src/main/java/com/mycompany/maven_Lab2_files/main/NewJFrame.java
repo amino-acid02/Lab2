@@ -200,6 +200,7 @@ public class NewJFrame extends javax.swing.JFrame {
     
     //кнопка считывания файла и заполнение таблицы reactors
     private void FilesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilesButtonActionPerformed
+        this.database.StartInsert("ReactorData.xlsx");
         try{
             JFileChooser filechooser = new JFileChooser();
             filechooser.setCurrentDirectory(new File("C:\\Users\\Амина\\Documents\\GitHub\\Lab2\\maven_Lab2_files"));
@@ -211,7 +212,7 @@ public class NewJFrame extends javax.swing.JFrame {
             readerManipulation rm = new readerManipulation();
             this.reactors = rm.importData(selectedFile);
             FillTree(this.reactors);
-            this.database.StartInsert((ArrayList<Reactor>) this.reactors);     
+            this.database.StartInsert((ArrayList<Reactor>) this.reactors);
         }
         catch(Exception e)
         {
@@ -224,7 +225,6 @@ public class NewJFrame extends javax.swing.JFrame {
         Creator creator = new Creator();
         creator.dropSQL();
         this.database.StartCreate();
-        this.database.StartInsert("ReactorData.xlsx");
     }//GEN-LAST:event_CreateButtonActionPerformed
 
     //кнопка удаления таблиц
