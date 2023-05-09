@@ -51,37 +51,29 @@ public class Inserter extends ConnectionRunners {
         try {
             Connection engine = DriverManager.getConnection(this.url, this.user, this.password);
             
+            Collections.addAll(unprepared_SQL, unprepared_SQL2,unprepared_SQL3,unprepared_SQL4,unprepared_SQL5,unprepared_SQL6);
+            Collections.addAll(tables, "regions","countries","companies","sites","units");
+            
             if(this.selectedFileMode == "other")
             { 
                 this.preparator = new SQL_Preparator(this.selectedFileMode, this.sourseOther);
-                PreparedStatement query_prepared = this.preparator.getPreparedSQL_insert(this.unprepared_SQL1, engine, "reactors");
+                PreparedStatement query_prepared = this.preparator.getPreparedSQL_insert(this.unprepared_SQL1, engine, "reactors"); /// GET UNPREPARED ROWS
                 query_prepared.executeBatch();
             }
+            else if(this.selectedFileMode == "excel")
+            {
+                this.preparator = new SQL_Preparator(this.selectedFileMode, this.path);
+                for(int i=0; i<unprepared_SQL.size(); i++)
+                {
+                    PreparedStatement query_prepared = this.preparator.getPreparedSQL_insert(this.unprepared_SQL.get(i), engine, tables.get(i)); /// GET UNPREPARED ROWS
+                    query_prepared.executeBatch();
+                }
+            }
+            
             engine.close();   
         } catch (Exception e) {
             JOptionPane.showMessageDialog (null, "Файл уже выбран", "Oшибка", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void runExcel(){
-        try{
-            Connection engine = DriverManager.getConnection(this.url, this.user, this.password);
-            
-            Collections.addAll(unprepared_SQL, unprepared_SQL2,unprepared_SQL3,unprepared_SQL4,unprepared_SQL5,unprepared_SQL6);
-            Collections.addAll(tables, "regions","countries","companies","sites","units");
-            
-            if(this.selectedFileMode == "excel")
-            { 
-            this.preparator = new SQL_Preparator(this.selectedFileMode, this.path);
-            for(int i=0; i<unprepared_SQL.size(); i++)
-            {
-                    PreparedStatement query_prepared = this.preparator.getPreparedSQL_insert(this.unprepared_SQL.get(i), engine, tables.get(i));
-                    query_prepared.executeBatch();
-            }
-            }
-            engine.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog (null, e.fillInStackTrace() + " " +this.path , "Oшибка", JOptionPane.ERROR_MESSAGE);
-        }
-    }
 }

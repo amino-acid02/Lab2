@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -56,12 +57,12 @@ public class SQL_Preparator {
         return this.wb.getSheet(sheetName).getRow(0).getPhysicalNumberOfCells();
     }
     
-    public String getValue(String sheetName,int NRow, int NCol) throws IOException
-    {
-        CellType type = this.wb.getSheet(sheetName).getRow(NRow).getCell(NCol).getCellType();
-        String value = this.wb.getSheet(sheetName).getRow(NRow).getCell(NCol).toString();
-        return value; 
-    }
+//    public String getValue(String sheetName,int NRow, int NCol) throws IOException
+//    {
+//        CellType type = this.wb.getSheet(sheetName).getRow(NRow).getCell(NCol).getCellType();
+//        String value = this.wb.getSheet(sheetName).getRow(NRow).getCell(NCol).toString();
+//        return value; 
+//    }
     
     public void close() throws IOException
     {
@@ -73,9 +74,7 @@ public class SQL_Preparator {
         if(this.mode.equals("excel"))
         {
             FixerExcel F = new FixerExcel();
-            JOptionPane.showMessageDialog (null, "Сейчас открою файл "+path, "Oшибка", JOptionPane.ERROR_MESSAGE);
             openFile();
-            JOptionPane.showMessageDialog (null, "Файл открыт", "Oшибка", JOptionPane.ERROR_MESSAGE);
             PreparedStatement query_prepared = engine.prepareStatement(unprepared_SQL);
             int nRows = getNrows(table_name);
             int nCols = getNcols(table_name);

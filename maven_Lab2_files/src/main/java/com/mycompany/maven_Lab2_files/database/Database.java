@@ -29,7 +29,7 @@ public class Database {
     public void StartInsert(String source)
     {
         Inserter excelInserter = new Inserter(this.mode, source);
-        excelInserter.runExcel();
+        excelInserter.run();
     }
     
     public void StartInsert(ArrayList<Reactor> source)

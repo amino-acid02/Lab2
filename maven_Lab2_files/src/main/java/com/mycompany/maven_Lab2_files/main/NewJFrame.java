@@ -1,11 +1,11 @@
 package com.mycompany.maven_Lab2_files.main;
 
+import static com.google.common.io.Files.getFileExtension;
 import com.mycompany.maven_Lab2_files.Reactor;
 import com.mycompany.maven_Lab2_files.Reader;
 import com.mycompany.maven_Lab2_files.database.Creator;
 import com.mycompany.maven_Lab2_files.database.Database;
 import com.mycompany.maven_Lab2_files.database.Displayer;
-import com.mycompany.maven_Lab2_files.database.Inserter;
 import com.mycompany.maven_Lab2_files.readerManipulation;
 import java.io.File;
 import java.sql.SQLException;
@@ -23,7 +23,6 @@ import javax.swing.tree.DefaultTreeModel;
 
 public class NewJFrame extends javax.swing.JFrame {
 
-    Displayer displayer;
     Database database = new Database("auto");
     public NewJFrame() throws SQLException {
         initComponents();
@@ -50,7 +49,7 @@ public class NewJFrame extends javax.swing.JFrame {
         AgregCompanyButton = new javax.swing.JButton();
         AgregRegionButton = new javax.swing.JButton();
         CalcButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,10 +121,10 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Exit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ExitButton.setText("Exit");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ExitButtonActionPerformed(evt);
             }
         });
 
@@ -142,7 +141,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(132, 132, 132)
-                                .addComponent(jButton1)))
+                                .addComponent(ExitButton)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
@@ -201,7 +200,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33))))
         );
 
@@ -222,15 +221,22 @@ public class NewJFrame extends javax.swing.JFrame {
             filechooser.setFileFilter(filter);
             filechooser.showOpenDialog(this);
             String selectedFile = filechooser.getSelectedFile().toString();
-            
-            readerManipulation rm = new readerManipulation();
-            this.reactors = rm.importData(selectedFile);
-            FillTree(this.reactors);
-            this.database.StartInsert((ArrayList<Reactor>) this.reactors);
+            String extension = getFileExtension(selectedFile);
+            if(!extension.equals("xlsx"))
+            {
+                readerManipulation rm = new readerManipulation();
+                this.reactors = rm.importData(selectedFile);
+                FillTree(this.reactors);
+                this.database.StartInsert((ArrayList<Reactor>) this.reactors);   
+            }
+            else
+            {
+                this.database.StartInsert(selectedFile);
+            }    
         }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog (null, "Вы не выбрали файл", "Oшибка", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog (null, "Ошибка в чтении файла", "Oшибка", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_FilesButtonActionPerformed
     
@@ -239,7 +245,6 @@ public class NewJFrame extends javax.swing.JFrame {
         Creator creator = new Creator();
         creator.dropSQL();
         this.database.StartCreate();
-        this.database.StartInsert(".\\src\\ReactorData.xlsx");
     }//GEN-LAST:event_CreateButtonActionPerformed
 
     //кнопка удаления таблиц
@@ -257,19 +262,6 @@ public class NewJFrame extends javax.swing.JFrame {
             Displayer displayer  = new Displayer(query);
             DefaultTableModel dt = new DefaultTableModel(displayer.getData(), displayer.getColNames());
             this.jTable1.setModel(dt );
-             //JTable g = new JTable(displayer.getData(), displayer.getColNames());
-//             {
-//                 public Class getColumnClass(int column)
-//                 {
-//                     for(int row = 0;row<getRowCount();row++){
-//                         Object o = getValueAt(row, column);
-//                         if(o!=null){
-//                             return o.getClass();
-//                         }
-//                     }
-//                     return Object.class;
-//                 }
-//             };
             this.jTable1.setVisible(true);
          } catch (Exception e) {
             JOptionPane.showMessageDialog (null, "Проблемы с агрегацией", "Oшибка", JOptionPane.ERROR_MESSAGE);
@@ -344,9 +336,9 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     
     private void FillTree(List<Reactor> reactors) throws IllegalAccessException
@@ -412,9 +404,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton CalcButton;
     private javax.swing.JButton CreateButton;
     private javax.swing.JButton DropButton;
+    private javax.swing.JButton ExitButton;
     private javax.swing.JToggleButton FilesButton;
     private javax.swing.JButton QueryButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
