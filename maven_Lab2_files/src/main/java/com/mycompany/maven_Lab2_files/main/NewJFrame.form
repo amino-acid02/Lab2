@@ -26,15 +26,8 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="QueryButton" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="FilesButton" min="-2" pref="102" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                              <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
+                      <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="390" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -42,13 +35,14 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane2" alignment="1" min="-2" pref="685" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="CreateButton" pref="106" max="32767" attributes="0"/>
-                                  <Component id="DropButton" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="CreateButton" pref="106" max="32767" attributes="0"/>
+                                      <Component id="DropButton" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="FilesButton" min="-2" pref="102" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="227" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="CalcButton" min="-2" max="-2" attributes="0"/>
                                   <Component id="AgregCountryButton" min="-2" pref="165" max="-2" attributes="0"/>
@@ -92,25 +86,13 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextField1" min="-2" pref="84" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="CreateButton" min="-2" pref="37" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="DropButton" min="-2" pref="34" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="QueryButton" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="CreateButton" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="FilesButton" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="ExitButton" min="-2" pref="36" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="DropButton" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="FilesButton" min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                      <Component id="ExitButton" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -137,18 +119,10 @@
     </Container>
     <Component class="javax.swing.JToggleButton" name="FilesButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select files"/>
+        <Property name="text" type="java.lang.String" value="select files"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FilesButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="QueryButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="RUN SQL query"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="QueryButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -162,11 +136,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="CreateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="create tables"/>

@@ -39,10 +39,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         FilesButton = new javax.swing.JToggleButton();
-        QueryButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
         CreateButton = new javax.swing.JButton();
         DropButton = new javax.swing.JButton();
         AgregCountryButton = new javax.swing.JButton();
@@ -57,27 +55,14 @@ public class NewJFrame extends javax.swing.JFrame {
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jTree1);
 
-        FilesButton.setText("Select files");
+        FilesButton.setText("select files");
         FilesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FilesButtonActionPerformed(evt);
             }
         });
 
-        QueryButton.setText("RUN SQL query");
-        QueryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                QueryButtonActionPerformed(evt);
-            }
-        });
-
         jScrollPane2.setViewportView(jTable1);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         CreateButton.setText("create tables");
         CreateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -135,25 +120,20 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(QueryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(132, 132, 132)
-                                .addComponent(ExitButton)))
+                        .addGap(256, 256, 256)
+                        .addComponent(ExitButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(CreateButton, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                                    .addComponent(DropButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(70, 70, 70)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(CreateButton, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                        .addComponent(DropButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(357, 357, 357)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CalcButton)
                                     .addComponent(AgregCountryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,21 +166,13 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(AgregRegionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CreateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DropButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 14, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(QueryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CreateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(DropButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33))))
         );
 
@@ -302,40 +274,6 @@ public class NewJFrame extends javax.swing.JFrame {
         creator.calc();
     }//GEN-LAST:event_CalcButtonActionPerformed
 
-    private void QueryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QueryButtonActionPerformed
-        try {
-            String query = this.jTextField1.getText();
-            String defaul_query = "select * from public.units;";
-            Displayer displayer0  = new Displayer(query);
-
-            DefaultTableModel dt = new DefaultTableModel(displayer0.getData(), displayer0.getColNames());
-
-            this.jTable1 .setModel(dt );
-
-            JTable g = new JTable(displayer0.getData(), displayer0.getColNames())
-            {
-                public Class getColumnClass(int column){
-                    for(int row = 0;row<getRowCount();row++){
-                        Object o = getValueAt(row, column);
-                        if(o!=null){
-                            return o.getClass();
-                        }}
-                        return Object.class;
-                    }
-
-                };
-
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog (null, "Такой таблицы не существует", "Oшибка", JOptionPane.ERROR_MESSAGE);
-            }
-
-            this.jTable1.setVisible(true);
-    }//GEN-LAST:event_QueryButtonActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
@@ -406,11 +344,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton DropButton;
     private javax.swing.JButton ExitButton;
     private javax.swing.JToggleButton FilesButton;
-    private javax.swing.JButton QueryButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }
