@@ -188,7 +188,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private void FilesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilesButtonActionPerformed
         try{
             JFileChooser filechooser = new JFileChooser();
-            filechooser.setCurrentDirectory(new File("C:\\Users\\Амина\\Documents\\GitHub\\Lab2\\maven_Lab2_files"));
             FileNameExtensionFilter filter = new FileNameExtensionFilter("POM", "json","xml", "yaml", "xlsx");
             filechooser.setFileFilter(filter);
             filechooser.showOpenDialog(this);
