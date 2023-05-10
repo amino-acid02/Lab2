@@ -35,21 +35,22 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane2" alignment="1" min="-2" pref="685" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="CreateButton" pref="106" max="32767" attributes="0"/>
-                                      <Component id="DropButton" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="FilesButton" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="CreateButton" max="32767" attributes="0"/>
+                                  <Component id="DropButton" max="32767" attributes="0"/>
+                                  <Component id="FilesButton" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="CalcButton" min="-2" max="-2" attributes="0"/>
-                                  <Component id="AgregCountryButton" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Component id="AgregCompanyButton" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Component id="AgregRegionButton" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="CalcButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="AgregCompanyButton" pref="183" max="32767" attributes="0"/>
+                                  <Component id="AgregCountryButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="AgregRegionButton" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -119,7 +120,7 @@
     </Container>
     <Component class="javax.swing.JToggleButton" name="FilesButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="select files"/>
+        <Property name="text" type="java.lang.String" value="&#x412;&#x44b;&#x431;&#x440;&#x430;&#x442;&#x44c; &#x444;&#x430;&#x439;&#x43b;&#x44b;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FilesButtonActionPerformed"/>
@@ -138,7 +139,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="CreateButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="create tables"/>
+        <Property name="text" type="java.lang.String" value="&#x421;&#x43e;&#x437;&#x434;&#x430;&#x442;&#x44c; &#x442;&#x430;&#x431;&#x43b;&#x438;&#x446;&#x44b;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateButtonActionPerformed"/>
@@ -146,7 +147,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="DropButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="drop tables"/>
+        <Property name="text" type="java.lang.String" value="&#x423;&#x434;&#x430;&#x43b;&#x438;&#x442;&#x44c; &#x442;&#x430;&#x431;&#x43b;&#x438;&#x446;&#x44b;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DropButtonActionPerformed"/>
@@ -154,7 +155,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="AgregCountryButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="aggregation countries"/>
+        <Property name="text" type="java.lang.String" value="&#x410;&#x433;&#x440;&#x435;&#x433;&#x430;&#x446;&#x438;&#x44f; &#x43f;&#x43e; &#x441;&#x442;&#x440;&#x430;&#x43d;&#x430;&#x43c;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregCountryButtonActionPerformed"/>
@@ -162,7 +163,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="AgregCompanyButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="aggregation companies"/>
+        <Property name="text" type="java.lang.String" value="&#x410;&#x433;&#x440;&#x435;&#x433;&#x430;&#x446;&#x438;&#x44f; &#x43f;&#x43e; &#x43a;&#x43e;&#x43c;&#x43f;&#x430;&#x43d;&#x438;&#x44f;&#x43c;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregCompanyButtonActionPerformed"/>
@@ -170,7 +171,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="AgregRegionButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="aggregation regions"/>
+        <Property name="text" type="java.lang.String" value="&#x410;&#x433;&#x440;&#x435;&#x433;&#x430;&#x446;&#x438;&#x44f; &#x43f;&#x43e; &#x440;&#x435;&#x433;&#x438;&#x43e;&#x43d;&#x430;&#x43c;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregRegionButtonActionPerformed"/>
@@ -178,7 +179,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="CalcButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="calculate"/>
+        <Property name="text" type="java.lang.String" value="&#x412;&#x44b;&#x447;&#x438;&#x441;&#x43b;&#x438;&#x442;&#x44c;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CalcButtonActionPerformed"/>
@@ -186,7 +187,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="ExitButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Exit"/>
+        <Property name="text" type="java.lang.String" value="&#x412;&#x44b;&#x445;&#x43e;&#x434;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitButtonActionPerformed"/>
